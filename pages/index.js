@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+import Head from "next/head";
 import { MongoClient } from "mongodb";
 
 import MeetupList from "@/components/meetups/MeetupList";
@@ -6,7 +8,18 @@ import MeetupList from "@/components/meetups/MeetupList";
 //       "https://upload.wikimedia.org/wikipedia/commons/d/d3/Stadtbild_M%C3%BCnchen.jpg",
 
 function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>React meetups</title>
+        <meta
+          name="description"
+          content="Browse a huge listof highly active React meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />;
+    </Fragment>
+  );
 }
 
 // export async function getServerSideProps(context) {
